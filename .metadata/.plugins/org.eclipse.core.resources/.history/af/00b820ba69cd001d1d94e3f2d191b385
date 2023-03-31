@@ -1,0 +1,11 @@
+package com.acknowledgement.repository;
+
+import java.io.Serializable;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.acknowledgement.entity.AcceptDocuments;
+
+public interface AcceptDocumentsRepository extends JpaRepository<AcceptDocuments, Serializable> {
+
+}

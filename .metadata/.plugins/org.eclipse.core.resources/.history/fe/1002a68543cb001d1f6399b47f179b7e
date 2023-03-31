@@ -1,0 +1,15 @@
+server.port=9090
+
+server.servlet.context-path=/ack
+
+api.ack.root=localhost:9090/ack/saveOrder
+
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/scms_ack_app
+spring.datasource.username=root
+spring.datasource.password=rootpassword
+spring.jpa.show-sql=true
+
+spring.jpa.hibernate.ddl-auto=update
+
+

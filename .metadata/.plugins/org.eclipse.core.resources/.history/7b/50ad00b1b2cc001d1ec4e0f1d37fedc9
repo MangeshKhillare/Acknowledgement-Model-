@@ -1,0 +1,33 @@
+package com.acknowledgement.serviceImpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.acknowledgement.entity.OrderHeader;
+import com.acknowledgement.repository.OrderHeaderRepository;
+import com.acknowledgement.service.OrderService;
+
+@Service
+public class OrderServiceImpl implements OrderService {
+
+	@Autowired
+	private OrderHeaderRepository orderHeaderRepo;
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public OrderHeader addOrder(OrderHeader orderHeader) {
+
+		// OrderHeader save = orderHeaderRepo.save(orderHeader);
+
+		List<OrderHeader> saveAll = orderHeaderRepo.saveAll((Iterable<OrderHeader>) orderHeader);
+
+		for (OrderHeader orderHeader2 : saveAll) {
+			System.out.println(orderHeader2);
+		}
+		return orderHeader;
+		
+	}
+
+}

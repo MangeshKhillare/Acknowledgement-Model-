@@ -1,0 +1,16 @@
+package com.acknowledgement.service;
+
+import com.acknowledgement.entity.OrderHeader;
+
+public interface OrderServiceI {
+
+	public OrderHeader addOrder(OrderHeader orderHeader);
+
+	public OrderHeader showAllOrder(Integer orderId);
+	
+	public OrderHeader updateByOrderId(Integer orderId);
+	
+	public boolean deleteByOrderId(Integer orderId);
+	
+	public boolean deleteAllOrder();
+}

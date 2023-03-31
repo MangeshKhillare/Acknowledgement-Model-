@@ -1,0 +1,18 @@
+package com.acknowledgement.service;
+
+import java.util.List;
+
+import com.acknowledgement.entity.OrderHeader;
+
+public interface OrderServiceI {
+
+	public OrderHeader addOrder(OrderHeader orderHeader);
+
+	public List<OrderHeader> showAllOrder(OrderHeader orderHeader);
+
+	public OrderHeader updateByOrderId(Integer orderId);
+
+	public boolean deleteByOrderId(Integer orderId);
+
+	public boolean deleteAllOrder();
+}

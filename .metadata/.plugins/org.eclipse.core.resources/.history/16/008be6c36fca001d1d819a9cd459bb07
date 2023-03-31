@@ -1,0 +1,5 @@
+package com.acknowledgement.service;
+
+public interface OrderService {
+
+}

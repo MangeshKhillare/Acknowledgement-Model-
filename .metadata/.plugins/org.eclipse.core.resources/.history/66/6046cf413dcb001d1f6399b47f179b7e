@@ -1,0 +1,6 @@
+package com.acknowledgement.bsServive;
+
+@org.springframework.stereotype.Service
+public class Service {
+
+}

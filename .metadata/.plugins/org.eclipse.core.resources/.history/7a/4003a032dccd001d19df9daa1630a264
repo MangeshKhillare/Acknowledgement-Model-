@@ -1,0 +1,32 @@
+package com.acknowledgement.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class RejectedDocuments {
+	
+	private Long id;
+	
+	private String userName;
+	
+	private Long purchaseOrderNumber;
+	
+	private LocalDate documentsCreatedDate;
+	
+	private String acklowendlenmentsType;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private OrderItems orderItems;
+
+}

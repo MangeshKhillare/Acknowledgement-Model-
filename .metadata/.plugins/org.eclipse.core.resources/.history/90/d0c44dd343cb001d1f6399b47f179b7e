@@ -1,0 +1,60 @@
+package com.acknowledgement.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class OrderHeader {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "Order_Id")
+	private Long orderId;
+
+	@Column(name = "User_Name")
+	private String userName;
+
+	@Column(name = "User_MobileNo")
+	private String userMobileNo;
+
+	@Column(name = "User_Email")
+	private String userEmail;
+
+	@Column(name = "Purchase_OrderNo")
+	private Long purchaseOrderNo;
+
+	@Column(name = "Purchase_OrderDate", updatable = false)
+	@CreationTimestamp
+	private LocalDate purchaseOrderDate;
+
+	@Column(name = "Purchase_Updated_OrderDate", insertable = false)
+	@UpdateTimestamp
+	private LocalDate purchaseUpdatedOrderDate;
+
+	
+	@Column(name = "Address")
+	private Address address;
+
+	
+	@Column(name = "OrderItems")
+	private OrderItems orderItems;
+
+}

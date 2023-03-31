@@ -1,0 +1,23 @@
+package com.acknowledgement.entity;
+
+import javax.persistence.Entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class ProductInfo {
+
+	private Integer productId;
+	
+	private String productName;
+	
+	private Long productNumber;
+	
+	private int productQuantity;
+	
+}

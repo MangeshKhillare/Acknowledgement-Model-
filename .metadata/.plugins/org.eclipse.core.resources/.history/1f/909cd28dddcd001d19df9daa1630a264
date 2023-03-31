@@ -1,0 +1,82 @@
+package com.acknowledgement.serviceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.acknowledgement.entity.AcceptDocuments;
+import com.acknowledgement.entity.OrderHeader;
+import com.acknowledgement.entity.ProductInfo;
+import com.acknowledgement.entity.RejectedDocuments;
+import com.acknowledgement.repository.AcceptDocumentsRepository;
+import com.acknowledgement.repository.OrderHeaderRepository;
+import com.acknowledgement.repository.ProductInfoRepository;
+import com.acknowledgement.repository.RejectedDocumentsRepository;
+import com.acknowledgement.service.OrderService;
+
+@Service
+public class OrderServiceImpl implements OrderService {
+
+	@Autowired
+	private OrderHeaderRepository orderHeaderRepo;
+
+	@Autowired
+	private ProductInfoRepository productInfoRepository;
+	
+	@Autowired
+	private AcceptDocumentsRepository acceptDocumentsRepository;
+	
+	@Autowired
+	private RejectedDocumentsRepository rejectedDocumentsRepository;
+
+	@Override
+	public OrderHeader addOrder(OrderHeader orderHeader) {
+
+		OrderHeader save = orderHeaderRepo.save(orderHeader);
+
+		return save;
+
+	}
+
+	@Override
+	public ProductInfo addProduct(ProductInfo productInfo) {
+
+		ProductInfo productInfoSave = productInfoRepository.save(productInfo);
+
+		return productInfoSave;
+	}
+
+	@Override
+	public AcceptDocuments acceptDocumentsGenerateAndPersist(OrderHeader orderHeader) {
+
+		AcceptDocuments acceptDocuments = new AcceptDocuments();
+
+		ProductInfo storeProductInfo = productInfoRepository.findByProductNumber(orderHeader.getOrderItems().getProductNumber());
+		
+		if(storeProductInfo.getProductQuantity() >= orderHeader.getOrderItems().getProductQuantity()) {
+			
+			acceptDocuments.setAcknowlendmentsType("AD");
+			
+			acceptDocuments.setUserName(orderHeader.getUserName());
+			acceptDocuments.setPurchaseOrderNumber(orderHeader.getPurchaseOrderNumber());
+			acceptDocuments.setOrderItems(orderHeader.getOrderItems());
+			
+			acceptDocumentsRepository.save(acceptDocuments);
+		}
+		
+		return acceptDocuments;
+	}
+
+	@Override
+	public RejectedDocuments rejectedDocumentssGenerateAndPersist(OrderHeader orderHeader) {
+		RejectedDocuments rejectedDocuments = new RejectedDocuments();
+		
+		rejectedDocuments.setAcknowledgementsType("RD");
+		rejectedDocuments.setUserName(orderHeader.getUserName());
+		rejectedDocuments.setPurchaseOrderNumber(orderHeader.getPurchaseOrderNumber());
+		rejectedDocuments.setOrderItems(orderHeader.getOrderItems());
+		
+		
+		return null;
+	}
+
+}

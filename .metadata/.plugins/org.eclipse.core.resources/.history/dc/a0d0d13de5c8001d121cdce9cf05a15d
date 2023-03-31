@@ -1,0 +1,70 @@
+package com.acknowledgement.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Service;
+import com.acknowledgement.entity.OrderHeader;
+
+import com.acknowledgement.repository.OrderHeaderRepository;
+
+@Service
+public class OrderServiceImpl implements OrderServiceI {
+
+	@Autowired
+	private OrderHeaderRepository orderHeaderRepository;
+
+	@Override
+	public OrderHeader addOrder(OrderHeader orderHeader) {
+
+		OrderHeader save = orderHeaderRepository.save(orderHeader);
+
+		return save;
+
+	}
+
+	
+
+
+
+	@Override
+	public boolean deleteByOrderId(Integer orderId) {
+
+		orderHeaderRepository.deleteById(orderId);
+
+		return false;
+	}
+
+	@Override
+	public boolean deleteAllOrder() {
+
+		orderHeaderRepository.deleteAll();
+
+		return false;
+	}
+
+	@Override
+	public OrderHeader getByOrderId(Integer orderId) {
+		
+		return null;
+	}
+
+	@Override
+	public List<OrderHeader> showAllOrder() {
+		
+		return null;
+	}
+
+	/*
+	 * @Override public OrderHeader findByOrderId(Integer orderId) {
+	 * 
+	 * Optional<OrderHeader> findById = orderHeaderRepository.findById(orderId);
+	 * 
+	 * System.out.println(findById);
+	 * 
+	 * return null; }
+	 */
+
+}

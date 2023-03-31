@@ -1,0 +1,13 @@
+package com.acknowledgement.entity;
+
+public class ProductInfo {
+
+	private Integer productId;
+	
+	private String productName;
+	
+	private Long productNumber;
+	
+	private int productQuantity;
+	
+}

@@ -1,0 +1,5 @@
+package com.acknowledgement.entity;
+
+public class OrderItems {
+
+}

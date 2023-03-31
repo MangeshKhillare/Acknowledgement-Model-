@@ -1,0 +1,5 @@
+package com.acknowledgement.repository;
+
+public interface ProductInfoRepository {
+
+}

@@ -1,0 +1,6 @@
+server.port=9091
+
+server.servlet.context-path=/ack_bs
+
+api.core.root=http://localhost:9092/ack_core
+

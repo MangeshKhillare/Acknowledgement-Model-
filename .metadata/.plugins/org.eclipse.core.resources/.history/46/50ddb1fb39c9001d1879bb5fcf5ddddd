@@ -1,0 +1,135 @@
+package com.acknowledgement.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+@Entity
+public class OrderHeader {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer orderId;
+
+	private String userName;
+
+	private String userMobileNo;
+	
+	private String userEmailId;
+
+	private String purchaseOrderNo;
+
+	@Column(name = "purchase_OrderDate", updatable = false)
+	@CreationTimestamp
+	private LocalDate purchaseOrderDate;
+
+	@Column(name = "purchase_Updated_OrderDate", insertable = false)
+	@UpdateTimestamp
+	private LocalDate purchaseUpdatedOrderDate;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private Address address;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private OrderItems orderItems;
+
+	public OrderHeader() {
+		super();
+
+	}
+
+	public OrderHeader(Integer orderId, String userName, String userMobileNo, String purchaseOrderNo,
+			LocalDate purchaseOrderDate, LocalDate purchaseUpdatedOrderDate, Address address, OrderItems orderItems) {
+		super();
+		this.orderId = orderId;
+		this.userName = userName;
+		this.userMobileNo = userMobileNo;
+		this.purchaseOrderNo = purchaseOrderNo;
+		this.purchaseOrderDate = purchaseOrderDate;
+		this.purchaseUpdatedOrderDate = purchaseUpdatedOrderDate;
+		this.address = address;
+		this.orderItems = orderItems;
+	}
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Integer orderId) {
+		this.orderId = orderId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getUserMobileNo() {
+		return userMobileNo;
+	}
+
+	public void setUserMobileNo(String userMobileNo) {
+		this.userMobileNo = userMobileNo;
+	}
+
+	public String getPurchaseOrderNo() {
+		return purchaseOrderNo;
+	}
+
+	public void setPurchaseOrderNo(String purchaseOrderNo) {
+		this.purchaseOrderNo = purchaseOrderNo;
+	}
+
+	public LocalDate getPurchaseOrderDate() {
+		return purchaseOrderDate;
+	}
+
+	public void setPurchaseOrderDate(LocalDate purchaseOrderDate) {
+		this.purchaseOrderDate = purchaseOrderDate;
+	}
+
+	public LocalDate getPurchaseUpdatedOrderDate() {
+		return purchaseUpdatedOrderDate;
+	}
+
+	public void setPurchaseUpdatedOrderDate(LocalDate purchaseUpdatedOrderDate) {
+		this.purchaseUpdatedOrderDate = purchaseUpdatedOrderDate;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public OrderItems getOrderItems() {
+		return orderItems;
+	}
+
+	public void setOrderItems(OrderItems orderItems) {
+		this.orderItems = orderItems;
+	}
+
+	@Override
+	public String toString() {
+		return "OrderHeader [orderId=" + orderId + ", userName=" + userName + ", userMobileNo=" + userMobileNo
+				+ ", purchaseOrderNo=" + purchaseOrderNo + ", purchaseOrderDate=" + purchaseOrderDate
+				+ ", purchaseUpdatedOrderDate=" + purchaseUpdatedOrderDate + ", address=" + address + ", orderItems="
+				+ orderItems + "]";
+	}
+
+}

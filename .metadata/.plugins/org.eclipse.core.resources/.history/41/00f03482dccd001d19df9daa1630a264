@@ -1,0 +1,14 @@
+package com.acknowledgement.service;
+
+import com.acknowledgement.entity.AcceptDocuments;
+import com.acknowledgement.entity.OrderHeader;
+import com.acknowledgement.entity.ProductInfo;
+
+public interface OrderService {
+
+	public OrderHeader addOrder(OrderHeader orderHeader);
+	
+	public ProductInfo addProduct(ProductInfo productInfo);
+	
+	public AcceptDocuments acceptDocumentsGenerateAndPersist(OrderHeader orderHeader);
+}

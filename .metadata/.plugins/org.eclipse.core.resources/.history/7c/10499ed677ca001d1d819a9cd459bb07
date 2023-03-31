@@ -1,0 +1,38 @@
+package com.acknowledgement.serviceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.web.client.RestTemplate;
+
+import com.acknowledgement.entity.OrderHeader;
+import com.acknowledgement.service.OrderService;
+
+public class OrderServiceImpl implements OrderService {
+
+	RestTemplate restTemplate = new RestTemplate();
+
+	@Autowired
+	private Environment environment;
+
+	@Override
+	public OrderHeader addOrder(OrderHeader orderHeader) {
+
+		String property = environment.getProperty("api.bs.root");
+
+		String url = "http://localhost:9091/ack_bs/save";
+
+		HttpHeaders headers = new HttpHeaders();
+		
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		
+		HttpEntity<OrderHeader> httpEntity = new HttpEntity<>(orderHeader,headers);
+		
+		restTemplate.exchange(url, HttpMethod.POST);
+		return null;
+	}
+
+}

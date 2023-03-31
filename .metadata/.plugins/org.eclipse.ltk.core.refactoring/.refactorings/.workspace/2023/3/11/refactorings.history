@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;AcknowledgementApplication&apos; to &apos;AcknowledgementModule&apos;" description="Rename resource &apos;AcknowledgementApplication&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/AcknowledgementApplication" name="AcknowledgementModule" stamp="1679077008574" updateReferences="true"/>&#x0A;<refactoring comment="Delete resource &apos;Acknowledgement_Module&apos;" deleteContents="true" description="Delete resource &apos;Acknowledgement_Module&apos;" element1="/Acknowledgement_Module" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1679111859951"/>
+</session>

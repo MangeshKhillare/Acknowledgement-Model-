@@ -1,0 +1,22 @@
+package com.acknowledgement.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+@Entity
+public class AcceptDocuments {
+	
+	private Long id;
+	
+	private String userName;
+	
+	private Long purchaseOrderNumber;
+	
+	@CreationTimestamp
+	private LocalDate documentsCreatedDate;
+
+	private String acknowlendmentsType;
+}

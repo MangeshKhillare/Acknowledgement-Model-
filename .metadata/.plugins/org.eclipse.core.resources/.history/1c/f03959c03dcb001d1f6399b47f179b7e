@@ -1,0 +1,15 @@
+package com.acknowledgement.bsServive;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.acknowledgement.entity.OrderHeader;
+
+@Service
+public class service {
+
+	public OrderHeader saveOrder(@RequestBody OrderHeader header) {
+		
+		
+	}
+}

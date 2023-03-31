@@ -1,0 +1,9 @@
+package com.acknowledgement.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.acknowledgement.entity.RejectedDocuments;
+
+public interface RejectedDocumentsRepository extends JpaRepository<RejectedDocuments, Long> {
+
+}

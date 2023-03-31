@@ -1,0 +1,14 @@
+package com.acknowledgement.serviceImpl;
+
+import com.acknowledgement.entity.OrderHeader;
+import com.acknowledgement.service.OrderService;
+
+public class OrderServiceImpl implements OrderService {
+
+	@Override
+	public OrderHeader addOrder(OrderHeader orderHeader) {
+		
+		return null;
+	}
+
+}
